@@ -1,0 +1,35 @@
+html{
+    scroll-snap-type: y mandatory;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+#hero{
+    background-color: #DDD78D;
+}
+
+#about{
+    background-color: #B6DCFE;
+}
+
+#projet{
+    background-color: #DEC5E3;
+}
+
+#contact{
+    background-color: #B2C9AB;
+}
