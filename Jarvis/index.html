@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="https://kit.fontawesome.com/0db1857d0f.js" crossorigin="anonymous"></script>
+    <script defer src="./script.js"></script>
+    <title>JARVIS</title>
+</head>
+<body>
+    <main>
+        <section class="container-menu">
+        </section>
+
+        <section class="container-objective">
+            <div class="container-list-name">
+                <h2>Projet :</h2>
+            </div>
+            <div class="container-list-task">
+                <ul id="task">
+                </ul>
+            </div>
+            
+            <div class="container-list-menu">
+                <i id="createList" class="fa-solid fa-plus"></i>
+            </div>
+        </section>
+
+        <div class="container-create-new-list">
+            <div class="title">
+                <p>Create a new List</p>
+                <i class="fa-solid fa-x"></i>
+            </div>
+            <div class="content">
+                <section class="container-menu">
+                </section>
+                <form id="form">
+                    <input type="text" placeholder="Titre" id="text">
+                    <input type="textarea" placeholder="Detail" id="textarea" spellcheck>
+                    <label for="date">Date :</label>
+                    <input type="date" id="date" min="" value="">
+                    <label for="priority">Priority :</label>
+                    <input type="button" value="low">
+                    <input type="button" value="medium">
+                    <input type="button" value="high">
+                    <input type="submit" value="add list" id="addList">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
