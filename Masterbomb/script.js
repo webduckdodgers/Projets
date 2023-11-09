@@ -44,24 +44,22 @@ function choix(reponse) {
     return(decision);
 }
 
-/*
-
 //
 let jeu = true;
 let option = false;
 //
 let choix_ordi = Array(6);
-let afficher_choix_ordi = "";
 //
-let gagner = false;
+let tentative;
 let colonne;
-let tentative = 0;
 let numero_tentative;
 let choix_joueur = Array(6)
-let continuer = true;
+let gagner = false;
 let afficher_choix_joueur = "";
+let afficher_choix_ordi = "";
 let afficher_indice = "";
-let afficher_resultat = "";
+let afficher_resultat = "";   
+let continuer = true;
 let bingo = false;
 
 alert(`\n🔴 🟠 🟡 🟢 🔵 🟣 \nBIENVENUE AU JEU MASTERMIND`);
@@ -75,7 +73,12 @@ while (jeu) {
     5 ][ SORTIR 👋🏼`);
 
     switch (menu) {
-        case "1":            
+        case "1":
+            gagner = false;
+            afficher_choix_joueur = "";
+            afficher_choix_ordi = "";
+            afficher_indice = "";
+            afficher_resultat = "";            
             for (let index = 0; index < choix_ordi.length; index++) {
                 choix_ordi[index] = Math.floor(Math.random() * 6 + 1);
 
@@ -90,6 +93,8 @@ while (jeu) {
                         
             alert(`\nDEVINE LA COMBINAISON DES COULEURS SECRÈTE CHOISIE PAR L'ORDINATEUR 🤖`);
             alert(`\nL'EST GO ! 😎`)
+
+            tentative = 0;
             while (choix_joueur != choix_ordi && continuer && tentative != 10 && !gagner) {
                 tentative++;
                 colonne = 0;
@@ -122,11 +127,11 @@ while (jeu) {
 
                 for (let index = 0; index < choix_joueur.length; index++) {
                     bingo = false;
-                    if (choix_joueur[index] === choix_ordi[index]) {
+                    if (choix_joueur[index] == choix_ordi[index]) {
                         afficher_resultat += `[ 👍🏼 ]`;
 
                         for (let analyser = 0; analyser < choix_joueur.length; analyser++) {
-                            if (!bingo && choix_joueur[index] === choix_ordi[analyser]) {
+                            if (!bingo && choix_joueur[index] == choix_ordi[analyser]) {
                                 afficher_indice += `[ 💡 ]`;
                                 bingo = true;
                             }
@@ -134,13 +139,13 @@ while (jeu) {
                     }
                     
                     bingo = false;
-                    if (choix_joueur[index] !== choix_ordi[index]) {
+                    if (choix_joueur[index] != choix_ordi[index]) {
                         afficher_resultat += `[ 👎🏼 ]`;
                         
                         for (let analyser = 0; analyser < choix_joueur.length; analyser++) {
-                            if (!bingo && choix_joueur[index] === choix_ordi[analyser]) {
-                                bingo = true;
+                            if (!bingo && choix_joueur[index] == choix_ordi[analyser]) {
                                 afficher_indice += `[ 🔋 ]`;
+                                bingo = true;
                             }
                         }
 
@@ -150,7 +155,7 @@ while (jeu) {
                     }
                 }
 
-                if (choix_joueur.every((value, index) => value === choix_ordi[index])) {
+                if (choix_joueur.every((value, index) => value == choix_ordi[index])) {
                     gagner = true;
                     alert(`BRAVO ! TU AS TROUVE 🏆 \n${afficher_choix_ordi} \nHISTORIQUE DE VOTRE PARTIE : \n${afficher_choix_joueur}`);
                 } else {
@@ -171,6 +176,7 @@ while (jeu) {
             break;
 
         case "2":
+            gagner = false;
             alert(`SALUT A TOI JOUEUR 1 !
                  \nNOUS VOULONS FAIRE UNE ATTAQUE TERRORISTE SUR UN AEROPORT, ET POUR CELA, JE VAIS TE DEMANDER DE CRÉER UNE BOMBE AVEC UNE COMBINAISON SECRÈTE DE 6 COULEURS 💣
                  \nPAR APRES, TU AURAS LE CHOIX DE CHOISIR COMBIEN DE TENTATIVE QUE TU SOUHAITES LAISSE A TON ABVERSAIRE.
@@ -178,7 +184,11 @@ while (jeu) {
 
             colonne = 0;
             while (!bingo) {
+                afficher_choix_joueur = "";
                 afficher_choix_ordi = "";
+                afficher_indice = "";
+                afficher_resultat = ""; 
+
                 for (let index = 0; index < choix_ordi.length; index++) {
                     colonne++;
                     choix_ordi[index] = Number(prompt(`CRÉER TA COMBINAISON SECRÈTE :
@@ -199,8 +209,8 @@ while (jeu) {
                     afficher_choix_ordi += `[ ${decision} ]`;
                 }
                 bingo = confirm(`SATISFAIT DE TA COMBINAISON SECRÈTE ? \n${afficher_choix_ordi}`);
-                colonne = 0;
             }
+
             alert(`SUPER ! \nMAINTENANT CHOISI COMBIEN DE TENTATIVE TU DESIRES LAISSE À TON ADERSAIRE.`)
             while (bingo) {
                 numero_tentative = prompt(`À SAVOIR ❗️ \nVOUS DEVEZ LAISSE MINIMUM 5 TENTATIVES ET VOUS POUVEZ EN CHOISIR JUSQU'A 12`);
@@ -218,7 +228,9 @@ while (jeu) {
                  \nTA MISSION : DEVINE LA COMBINAISON SECRÈTE CHOISIE PAR TON ABVERSAIRE.`);
             alert(`\nTU AURAS SEULEMENT ${numero_tentative} TENTATIVES.. \nON CROIT EN TOI.`);
             alert(`\nL'EST GO ! 😠`)
-            while (choix_joueur != choix_ordi && continuer && tentative != numero_tentative && !gagner) {
+
+            tentative = 0;
+            while ((choix_joueur == choix_ordi) || continuer || (tentative <= numero_tentative) || gagner) {
                 tentative++;
                 colonne = 0;
                 for (let index = 0; index < choix_joueur.length; index++) {
@@ -321,6 +333,4 @@ while (jeu) {
             break;
     }        
 }
-
-*/
 
