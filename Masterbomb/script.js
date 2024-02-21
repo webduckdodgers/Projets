@@ -1,4 +1,23 @@
 
+let choix = (reponse) => {
+
+    if (reponse == 1) {
+        decision = "🔴";
+    } else if (reponse == 2) {
+        decision = "🟠";
+    } else if (reponse == 3) {
+        decision = "🟡";
+    } else if (reponse == 4) {
+        decision = "🟢";
+    } else if (reponse == 5) {
+        decision = "🔵";
+    } else if (reponse == 6) {
+        decision = "🟣";
+    }
+
+    return(decision);
+}
+
 function regle_du_jeu() {
     alert(`Le Mastermind est un jeu de logique et de déduction qui se joue généralement à deux joueurs.
          \nLe but du jeu est de deviner la combinaison de couleurs secrète choisie par l'autre joueur, tout en donnant des indications à chaque tentative pour aider à affiner les hypothèses.`);
@@ -25,26 +44,7 @@ function regle_du_jeu() {
          \nLe joueur qui réussit à deviner la combinaison secrète avec le moins de tentatives gagne la partie. Le Mastermind peut être adapté pour être joué en solo ou avec plus de deux joueurs, ainsi que sous différentes variantes en ajoutant des règles spéciales pour rendre le jeu plus complexe ou stimulant.`);
 }
 
-function choix(reponse) {
 
-    if (reponse == 1) {
-        decision = "🔴";
-    } else if (reponse == 2) {
-        decision = "🟠";
-    } else if (reponse == 3) {
-        decision = "🟡";
-    } else if (reponse == 4) {
-        decision = "🟢";
-    } else if (reponse == 5) {
-        decision = "🔵";
-    } else if (reponse == 6) {
-        decision = "🟣";
-    }
-
-    return(decision);
-}
-
-//
 let jeu = true;
 let option = false;
 //
@@ -62,8 +62,9 @@ let afficher_resultat = "";
 let continuer = true;
 let bingo = false;
 
-alert(`\n🔴 🟠 🟡 🟢 🔵 🟣 \nBIENVENUE AU JEU MASTERMIND`);
 
+
+alert(`\n🔴 🟠 🟡 🟢 🔵 🟣 \nBIENVENUE AU JEU MASTERMIND`);
 while (jeu) {
     let menu = prompt(`MENU :
     1 ][ JOUER CONTRE L'ORDINATEUR 🤖
@@ -333,4 +334,6 @@ while (jeu) {
             break;
     }        
 }
+
+
 
